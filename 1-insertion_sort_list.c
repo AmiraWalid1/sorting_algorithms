@@ -18,12 +18,12 @@ void insertion_sort_list(listint_t **list)
 		while (curr->prev && curr->prev->n > curr->n)
 		{
 			prev = curr->prev;
-			
+
 			curr->prev = prev->prev;
 			prev->next = curr->next;
 			curr->next = prev;
 			prev->prev = curr;
-			
+
 			if (curr->prev != NULL)
 				curr->prev->next = curr;
 			else
