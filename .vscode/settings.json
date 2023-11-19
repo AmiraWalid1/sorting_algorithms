@@ -1,0 +1,10 @@
+{
+    "editor.tabSize": 8,
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "files.associations": {
+	"main.h": "c",
+	"stddef.h": "c",
+	"random": "c"
+     }
+} 
