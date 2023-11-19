@@ -4,7 +4,6 @@
  * selection_sort - this is one of the algorithm sorting methods
  * @array: this the array of integers
  * @size: it is the size of the array
- *
  * Return: Vois - No return
  */
 
@@ -12,6 +11,9 @@ void selection_sort(int *array, size_t size)
 {
 	size_t y, x, min_indx;
 	int arr;
+
+	if (array == NULL)
+		return;
 
 	for (x = 0; x < size - 1; x++)
 	{
