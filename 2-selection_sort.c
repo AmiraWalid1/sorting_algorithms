@@ -1,4 +1,5 @@
 #include "sort.h"
+
 /**
  * selection_sort - this is one of the algorithm sorting methods
  * @array: this the array of integers
@@ -6,6 +7,7 @@
  *
  * Return: Vois - No return
  */
+
 void selection_sort(int *array, size_t size)
 {
 	size_t y, x, min_indx;
