@@ -3,7 +3,7 @@
 /**
  * bubble_sort - it is one of the algorithm sorting methods
  * @size: it is the size of the array
- * @array: Array of integers
+ * @array: this is the array of integers
  * Return: Void - No return
  */
 
