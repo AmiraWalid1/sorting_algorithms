@@ -26,6 +26,9 @@ void bubble_sort(int *array, size_t size);
 /*insertion_sort */
 void insertion_sort_list(listint_t **list);
 
+/*selection_sort*/
+void selection_sort(int *array, size_t size);
+
 /*quick_sort*/
 void quick_sort(int *array, size_t size);
 int partition(int *array, size_t size, int low, int hight);
