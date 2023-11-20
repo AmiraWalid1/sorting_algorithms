@@ -29,10 +29,15 @@ void insertion_sort_list(listint_t **list);
 /*selection_sort*/
 void selection_sort(int *array, size_t size);
 
-/*quick_sort*/
+/*quick_sort_lomuto*/
 void quick_sort(int *array, size_t size);
-int partition(int *array, size_t size, int low, int hight);
 void quick_sort_rec(int *array, size_t size, int low, int hight);
+int partition_lomuto(int *array, size_t size, int low, int hight);
+
+/*quick_sort_hoare*/
+void quick_sort_hoare(int *array, size_t size);
+void quick_sort_hoare_rec(int *array, size_t size, int low, int hight);
+int partition_hoare(int *array, size_t size, int low, int hight);
 
 void swap(int *a, int *b);
 

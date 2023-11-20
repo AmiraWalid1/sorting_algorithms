@@ -1,13 +1,13 @@
 #include "sort.h"
 /**
- * partition - the Lomuto partition scheme to make guick sort.
+ * partition_lomuto - the Lomuto partition scheme to make quick sort.
  * @array: array.
  * @size: size of array.
  * @low: low index of sequence of array will be sorted.
  * @hight: hight index of sequence of array will be sorted.
  * Return: index of pivot.
 */
-int partition(int *array, size_t size, int low, int hight)
+int partition_lomuto(int *array, size_t size, int low, int hight)
 {
 	int pivot = array[hight];
 	int i = low - 1, j;
@@ -30,8 +30,8 @@ int partition(int *array, size_t size, int low, int hight)
 
 
 /**
- * quick_sort_rec - function that sorts an array of integers in
- * ascending order using the Quick sort algorithm.
+ * quick_sort_rec - function that sorts an array of integers in ascending order
+ * using the Quick sort algorithm implemented by the lomuto partition scheme.
  * @array: array.
  * @size: size of array.
  * @low: low index of sequence of array will be sorted.
@@ -42,7 +42,7 @@ void quick_sort_rec(int *array, size_t size, int low, int hight)
 {
 	if (low < hight)
 	{
-		int pivot = partition(array, size, low, hight);
+		int pivot = partition_lomuto(array, size, low, hight);
 
 		quick_sort_rec(array, size, low, pivot - 1);
 		quick_sort_rec(array, size, pivot + 1, hight);
