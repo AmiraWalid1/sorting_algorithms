@@ -39,6 +39,11 @@ void quick_sort_hoare(int *array, size_t size);
 void quick_sort_hoare_rec(int *array, size_t size, int low, int hight);
 int partition_hoare(int *array, size_t size, int low, int hight);
 
+/*merge sort*/
+void merge_sort(int *array, size_t size);
+void merge_sort_rec(int *array, int left, int right);
+void merge(int *array, int left, int mid, int right);
+
 void swap(int *a, int *b);
 
 #endif /*SORT_H*/
