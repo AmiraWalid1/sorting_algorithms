@@ -24,7 +24,7 @@ void merge(int *array, int left, int mid, int right)
 	printf("[right]: ");
 	for (j = arrL_sz; j < arrL_sz + arrR_sz; j++)
 	{
-		temp_arr[j] = array[left + j];
+		temp_arr[j] = array[mid + 1 + j - arrL_sz];
 		printf("%d%s", temp_arr[j], j == arrL_sz + arrR_sz - 1 ? "\n" : ", ");
 	}
 	i = 0, j = arrL_sz, k = left;
