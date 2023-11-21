@@ -37,6 +37,10 @@ int partition_lomuto(int *array, size_t size, int low, int hight);
 /*shell_sort*/
 void shell_sort(int *array, size_t size);
 
+/*counting_sort*/
+void counting_sort(int *array, size_t size);
+int max_element(int *array, size_t size);
+
 /*quick_sort_hoare*/
 void quick_sort_hoare(int *array, size_t size);
 void quick_sort_hoare_rec(int *array, size_t size, int low, int hight);

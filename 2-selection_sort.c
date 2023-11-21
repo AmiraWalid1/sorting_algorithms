@@ -4,7 +4,7 @@
  * selection_sort - this is one of the algorithm sorting methods
  * @array: this the array of integers
  * @size: it is the size of the array
- * Return: Vois - No return
+ * Return: Void - No return
  */
 
 void selection_sort(int *array, size_t size)
