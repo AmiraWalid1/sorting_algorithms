@@ -41,8 +41,8 @@ int partition_hoare(int *array, size_t size, int low, int hight);
 
 /*merge sort*/
 void merge_sort(int *array, size_t size);
-void merge_sort_rec(int *array, int left, int right);
-void merge(int *array, int left, int mid, int right);
+void merge_sort_rec(int *array, int *temp_arr, int left, int right);
+void merge(int *array, int *temp_arr, int left, int mid, int right);
 
 void swap(int *a, int *b);
 

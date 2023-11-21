@@ -3,72 +3,63 @@
 /**
  * merge - merge to subarrays.
  * @array: array.
+ * @temp_arr: temporary array
  * @left: left index.
  * @mid: mid index.
  * @right: right index.
  * return: void
 */
-void merge(int *array, int left, int mid, int right)
+void merge(int *array, int *temp_arr, int left, int mid, int right)
 {
-	int arrL_sz = (mid - left + 1), arrR_sz = (right - mid);
-	int *temp_arr = malloc((arrL_sz + arrR_sz) * sizeof(int));
 	int i, j, k;
 
 	printf("Merging...\n");
 	printf("[left]: ");
-	for (i  = 0; i < arrL_sz ; i++)
-	{
-		temp_arr[i] = array[left + i];
-		printf("%d%s", temp_arr[i], i == arrL_sz - 1 ? "\n" : ", ");
-	}
+	print_array(array + left, (mid - left + 1));
 	printf("[right]: ");
-	for (j = arrL_sz; j < arrL_sz + arrR_sz; j++)
+	print_array(array + (mid + 1), (right - mid));
+
+	for (i  = left; i <= right; i++)
 	{
-		temp_arr[j] = array[mid + 1 + j - arrL_sz];
-		printf("%d%s", temp_arr[j], j == arrL_sz + arrR_sz - 1 ? "\n" : ", ");
+		temp_arr[i] = array[i];
 	}
-	i = 0, j = arrL_sz, k = left;
-	printf("[Done]: ");
-	while (i < arrL_sz && j < arrR_sz + arrL_sz)
+
+	i = left, j = mid + 1, k = left;
+	while (i <= mid && j <= right)
 	{
 		if (temp_arr[i] < temp_arr[j])
-			array[k] = temp_arr[i++];
+			array[k++] = temp_arr[i++];
 		else
-			array[k] = temp_arr[j++];
-		printf("%s%d", k != left ? ", " : "", array[k]);
-		k++;
+			array[k++] = temp_arr[j++];
 	}
-	while (i < arrL_sz)
-	{
-		printf(", %d", array[i]);
+	while (i <= mid)
 		array[k++] = temp_arr[i++];
-	}
-	while (j < arrR_sz + arrL_sz)
-	{
-		printf(", %d", array[j]);
+
+	while (j <= right)
 		array[k++] = temp_arr[j++];
-	}
-	printf("\n");
-	free(temp_arr);
+
+	printf("[Done]: ");
+	print_array(array + left, (right - left + 1));
 }
 /**
  * merge_sort_rec - function that sorts an array of integers in ascending order
  * using the Merge sort algorithm.
  * @array: array.
+ * @temp_arr: temporary array
  * @left: left index.
  * @right: right index.
  * return: void
 */
-void merge_sort_rec(int *array, int left, int right)
+void merge_sort_rec(int *array, int *temp_arr, int left, int right)
 {
 	int mid;
 
 	if (left >= right)
 		return;
 	mid = ((left + right) / 2) + ((left + right) % 2) - 1;
-	merge_sort_rec(array, left, mid);
-	merge_sort_rec(array, mid + 1, right);
-	merge(array, left, mid, right);
+	merge_sort_rec(array, temp_arr, left, mid);
+	merge_sort_rec(array, temp_arr, mid + 1, right);
+	merge(array, temp_arr, left, mid, right);
 
 }
 /**
@@ -80,5 +71,8 @@ void merge_sort_rec(int *array, int left, int right)
 */
 void merge_sort(int *array, size_t size)
 {
-	merge_sort_rec(array, 0, size - 1);
+	int *temp_arr = malloc(size * sizeof(int));
+
+	merge_sort_rec(array, temp_arr, 0, size - 1);
+	free(temp_arr);
 }
