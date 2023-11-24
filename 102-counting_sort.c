@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdlib.h>
 
 /**
  * max_element - this is the maximum value in the array
@@ -29,20 +30,17 @@ int max_element(int *array, size_t size)
 
 void counting_sort(int *array, size_t size)
 {
-	int y, max_elem;
+	unsigned long int y, max_elem;
 	int *c_array, *out_array;
 
 	if (size < 2)
 		return;
-	max_elem = array[0];
+	max_elem = 0;
 	max_elem = max_element(array, size);
 	c_array = malloc((max_elem + 1) * sizeof(int));
 
 	if (c_array == NULL)
-	{
-		free(c_array);
 		return;
-	}
 	for (y = 0; y <= max_elem; y++)
 		c_array[y] = 0;
 	for (y = 0; y < size; y++)
@@ -67,5 +65,6 @@ void counting_sort(int *array, size_t size)
 	}
 	for (y = 0; y < size; y++)
 		array[y] = out_array[y];
-	free(c_array), free(out_array);
+	free(c_array);
+	free(out_array);
 }
